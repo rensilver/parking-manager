@@ -1,11 +1,14 @@
 package com.rensilver.parkingmanager.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_client")
-public class Client {
+public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +25,8 @@ public class Client {
 
     @Column(name = "address", nullable = false)
     private String address;
+
+    private Set<Vehicle> vehicles = new HashSet<>();
 
     public Client() {
     }

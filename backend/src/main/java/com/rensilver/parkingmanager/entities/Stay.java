@@ -1,13 +1,14 @@
 package com.rensilver.parkingmanager.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tb_stay")
-public class Stay {
+public class Stay implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,18 +26,17 @@ public class Stay {
     @Column(name="exitTime", nullable = false)
     private LocalTime exitTime;
 
-    private Double amount;
+    private final Double hourlyValor = 8.00;
 
     public Stay() {
     }
 
-    public Stay(Long id, LocalDate entryDate, LocalDate departureDate, LocalTime entryTime, LocalTime exitTime, Double amount) {
+    public Stay(Long id, LocalDate entryDate, LocalDate departureDate, LocalTime entryTime, LocalTime exitTime) {
         this.id = id;
         this.entryDate = entryDate;
         this.departureDate = departureDate;
         this.entryTime = entryTime;
         this.exitTime = exitTime;
-        this.amount = amount;
     }
 
     public Long getId() {
@@ -77,14 +77,6 @@ public class Stay {
 
     public void setExitTime(LocalTime exitTime) {
         this.exitTime = exitTime;
-    }
-
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
     }
 
     @Override
