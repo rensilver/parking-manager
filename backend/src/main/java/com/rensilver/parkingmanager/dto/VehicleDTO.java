@@ -1,8 +1,13 @@
 package com.rensilver.parkingmanager.dto;
 
+import com.rensilver.parkingmanager.entities.Client;
+import com.rensilver.parkingmanager.entities.Stay;
+import com.rensilver.parkingmanager.entities.Vehicle;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class VehicleDTO implements Serializable {
 
@@ -13,15 +18,29 @@ public class VehicleDTO implements Serializable {
 
     private List<ClientDTO> clients = new ArrayList<>();
 
+    private List<StayDTO> stays = new ArrayList<>();
+
     public VehicleDTO() {
     }
 
-    public VehicleDTO(Long id, String model, String color, String licensePlate, List<ClientDTO> clients) {
+    public VehicleDTO(Long id, String model, String color, String licensePlate) {
         this.id = id;
         this.model = model;
         this.color = color;
         this.licensePlate = licensePlate;
-        this.clients = clients;
+    }
+
+    public VehicleDTO(Vehicle entity) {
+        id = entity.getId();
+        model = entity.getModel();
+        color = entity.getColor();
+        licensePlate = entity.getLicensePlate();
+    }
+
+    public VehicleDTO(Vehicle entity, Set<Client> clients, List<Stay> stays) {
+        this(entity);
+        clients.forEach(client -> this.clients.add(new ClientDTO(client)));
+        stays.forEach(st -> this.stays.add(new StayDTO(st)));
     }
 
     public Long getId() {
@@ -62,5 +81,13 @@ public class VehicleDTO implements Serializable {
 
     public void setClients(List<ClientDTO> clients) {
         this.clients = clients;
+    }
+
+    public List<StayDTO> getStays() {
+        return stays;
+    }
+
+    public void setStays(List<StayDTO> stays) {
+        this.stays = stays;
     }
 }

@@ -26,6 +26,7 @@ public class Client implements Serializable {
     @Column(name = "address", nullable = false)
     private String address;
 
+    @ManyToMany(mappedBy = "clients")
     private Set<Vehicle> vehicles = new HashSet<>();
 
     public Client() {
@@ -77,6 +78,14 @@ public class Client implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Set<Vehicle> getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(Set<Vehicle> vehicles) {
+        this.vehicles = vehicles;
     }
 
     @Override

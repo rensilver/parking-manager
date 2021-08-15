@@ -72,6 +72,22 @@ public class Vehicle implements Serializable {
         this.licensePlate = licensePlate;
     }
 
+    public Set<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(Set<Client> clients) {
+        this.clients = clients;
+    }
+
+    public List<Stay> getStays() {
+        return stays;
+    }
+
+    public void setStays(List<Stay> stays) {
+        this.stays = stays;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
