@@ -1,4 +1,77 @@
 package com.rensilver.parkingmanager.entities;
 
+import javax.persistence.*;
+import java.util.Objects;
+
+@Entity
+@Table(name = "tb_vehicle")
 public class Vehicle {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "model", nullable = false)
+    private String model;
+
+    @Column(name = "color", nullable = false)
+    private String color;
+
+    @Column(name = "cpf", nullable = false, unique = true)
+    private String licensePlate;
+
+    public Vehicle() {
+    }
+
+    public Vehicle(Long id, String model, String color, String licensePlate) {
+        this.id = id;
+        this.model = model;
+        this.color = color;
+        this.licensePlate = licensePlate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vehicle vehicle = (Vehicle) o;
+        return Objects.equals(id, vehicle.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
