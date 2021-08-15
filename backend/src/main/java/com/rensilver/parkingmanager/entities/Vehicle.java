@@ -2,9 +2,7 @@ package com.rensilver.parkingmanager.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_vehicle")
@@ -23,7 +21,14 @@ public class Vehicle implements Serializable {
     @Column(name = "cpf", nullable = false, unique = true)
     private String licensePlate;
 
-    private Set<Stay> stays = new HashSet<>();
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "tb_vehicle_client",
+            joinColumns = @JoinColumn(name = "vehicle_id"),
+            inverseJoinColumns = @JoinColumn(name = "client_id"))
+    private Set<Client> clients = new HashSet<>();
+
+    @OneToMany(mappedBy = "vehicle")
+    private List<Stay> stays = new ArrayList<>();
 
     public Vehicle() {
     }

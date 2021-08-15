@@ -1,48 +1,39 @@
-package com.rensilver.parkingmanager.entities;
+package com.rensilver.parkingmanager.dto;
 
-import javax.persistence.*;
+import com.rensilver.parkingmanager.entities.Stay;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Objects;
 
-@Entity
-@Table(name = "tb_stay")
-public class Stay implements Serializable {
+public class StayDTO implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name="entryDate", nullable = false)
     private LocalDate entryDate;
-
-    @Column(name="departureDate", nullable = false)
     private LocalDate departureDate;
-
-    @Column(name="entryTime", nullable = false)
     private LocalTime entryTime;
-
-    @Column(name="exitTime", nullable = false)
     private LocalTime exitTime;
-
-    @Column(name="exitTime", nullable = false)
     private Double hourlyValor;
 
-    @ManyToOne
-    @JoinColumn(name = "vehicle_id")
-    private Vehicle vehicle;
-
-    public Stay() {
+    public StayDTO() {
     }
 
-    public Stay(Long id, LocalDate entryDate, LocalDate departureDate, LocalTime entryTime, LocalTime exitTime, Vehicle vehicle) {
+    public StayDTO(Long id, LocalDate entryDate, LocalDate departureDate, LocalTime entryTime, LocalTime exitTime, Double hourlyValor) {
         this.id = id;
         this.entryDate = entryDate;
         this.departureDate = departureDate;
         this.entryTime = entryTime;
         this.exitTime = exitTime;
-        this.vehicle = vehicle;
+        this.hourlyValor = hourlyValor;
+    }
+
+    public StayDTO(Stay entity) {
+        id = entity.getId();
+        entryDate = entity.getEntryDate();
+        departureDate = entity.getDepartureDate();
+        entryTime = entity.getEntryTime();
+        exitTime = entity.getExitTime();
+        hourlyValor = entity.getHourlyValor();
     }
 
     public Long getId() {
@@ -91,18 +82,5 @@ public class Stay implements Serializable {
 
     public void setHourlyValor(Double hourlyValor) {
         this.hourlyValor = hourlyValor;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Stay stay = (Stay) o;
-        return Objects.equals(id, stay.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }
