@@ -26,18 +26,22 @@ public class Client implements Serializable {
     @Column(name = "address", nullable = false)
     private String address;
 
+    @Column(name = "cellPhone", nullable = false)
+    private String cellPhone;
+
     @ManyToMany(mappedBy = "clients")
     private Set<Vehicle> vehicles = new HashSet<>();
 
     public Client() {
     }
 
-    public Client(Long id, String firstName, String lastName, String cpf, String address) {
+    public Client(Long id, String firstName, String lastName, String cpf, String address, String cellPhone) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.cpf = cpf;
         this.address = address;
+        this.cellPhone = cellPhone;
     }
 
     public Long getId() {
@@ -78,6 +82,14 @@ public class Client implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getCellPhone() {
+        return cellPhone;
+    }
+
+    public void setCellPhone(String cellPhone) {
+        this.cellPhone = cellPhone;
     }
 
     public Set<Vehicle> getVehicles() {

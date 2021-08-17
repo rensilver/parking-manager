@@ -11,16 +11,18 @@ public class ClientDTO implements Serializable {
     private String lastName;
     private String cpf;
     private String address;
+    private String cellPhone;
 
     public ClientDTO() {
     }
 
-    public ClientDTO(Long id, String firstName, String lastName, String cpf, String address) {
+    public ClientDTO(Long id, String firstName, String lastName, String cpf, String address, String cellPhone) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.cpf = cpf;
         this.address = address;
+        this.cellPhone = cellPhone;
     }
 
     public ClientDTO(Client entity) {
@@ -29,6 +31,7 @@ public class ClientDTO implements Serializable {
         lastName = entity.getLastName();
         cpf = entity.getCpf();
         address = entity.getAddress();
+        cellPhone = entity.getCellPhone();
     }
 
     public Long getId() {
@@ -69,5 +72,13 @@ public class ClientDTO implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getCellPhone() {
+        return cellPhone;
+    }
+
+    public void setCellPhone(String cellPhone) {
+        this.cellPhone = cellPhone;
     }
 }

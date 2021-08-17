@@ -18,7 +18,7 @@ public class Vehicle implements Serializable {
     @Column(name = "color", nullable = false)
     private String color;
 
-    @Column(name = "cpf", nullable = false, unique = true)
+    @Column(name = "licensePlate", nullable = false, unique = true)
     private String licensePlate;
 
     @ManyToMany(fetch = FetchType.EAGER)

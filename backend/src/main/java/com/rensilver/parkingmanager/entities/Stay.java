@@ -26,7 +26,7 @@ public class Stay implements Serializable {
     @Column(name="exitTime", nullable = false)
     private LocalTime exitTime;
 
-    @Column(name="exitTime", nullable = false)
+    @Column(name="hourlyValor", nullable = false)
     private Double hourlyValor;
 
     @ManyToOne
