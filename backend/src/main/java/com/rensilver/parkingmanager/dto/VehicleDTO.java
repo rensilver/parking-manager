@@ -79,15 +79,7 @@ public class VehicleDTO implements Serializable {
         return clients;
     }
 
-    public void setClients(List<ClientDTO> clients) {
-        this.clients = clients;
-    }
-
     public List<StayDTO> getStays() {
         return stays;
-    }
-
-    public void setStays(List<StayDTO> stays) {
-        this.stays = stays;
     }
 }

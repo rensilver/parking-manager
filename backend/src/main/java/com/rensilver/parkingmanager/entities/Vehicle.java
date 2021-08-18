@@ -76,16 +76,8 @@ public class Vehicle implements Serializable {
         return clients;
     }
 
-    public void setClients(Set<Client> clients) {
-        this.clients = clients;
-    }
-
     public List<Stay> getStays() {
         return stays;
-    }
-
-    public void setStays(List<Stay> stays) {
-        this.stays = stays;
     }
 
     @Override

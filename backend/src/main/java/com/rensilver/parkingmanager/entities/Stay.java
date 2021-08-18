@@ -93,6 +93,14 @@ public class Stay implements Serializable {
         this.hourlyValor = hourlyValor;
     }
 
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

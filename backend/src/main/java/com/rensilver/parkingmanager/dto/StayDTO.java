@@ -1,6 +1,7 @@
 package com.rensilver.parkingmanager.dto;
 
 import com.rensilver.parkingmanager.entities.Stay;
+import com.rensilver.parkingmanager.entities.Vehicle;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -14,6 +15,7 @@ public class StayDTO implements Serializable {
     private LocalTime entryTime;
     private LocalTime exitTime;
     private Double hourlyValor;
+    private VehicleBasicInfoDTO vehicle;
 
     public StayDTO() {
     }
@@ -34,6 +36,16 @@ public class StayDTO implements Serializable {
         entryTime = entity.getEntryTime();
         exitTime = entity.getExitTime();
         hourlyValor = entity.getHourlyValor();
+    }
+
+    public StayDTO(Stay entity, Vehicle vehicleEntity) {
+        id = entity.getId();
+        entryDate = entity.getEntryDate();
+        departureDate = entity.getDepartureDate();
+        entryTime = entity.getEntryTime();
+        exitTime = entity.getExitTime();
+        hourlyValor = entity.getHourlyValor();
+        vehicle = new VehicleBasicInfoDTO(vehicleEntity);
     }
 
     public Long getId() {
@@ -82,5 +94,13 @@ public class StayDTO implements Serializable {
 
     public void setHourlyValor(Double hourlyValor) {
         this.hourlyValor = hourlyValor;
+    }
+
+    public VehicleBasicInfoDTO getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(VehicleBasicInfoDTO vehicle) {
+        this.vehicle = vehicle;
     }
 }
