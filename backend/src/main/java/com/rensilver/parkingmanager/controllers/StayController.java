@@ -1,6 +1,5 @@
 package com.rensilver.parkingmanager.controllers;
 
-import com.rensilver.parkingmanager.dto.ClientDTO;
 import com.rensilver.parkingmanager.dto.StayDTO;
 import com.rensilver.parkingmanager.services.StayService;
 import org.springframework.beans.factory.annotation.Autowired;
