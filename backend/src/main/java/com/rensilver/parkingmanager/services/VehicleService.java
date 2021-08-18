@@ -1,10 +1,8 @@
 package com.rensilver.parkingmanager.services;
 
 import com.rensilver.parkingmanager.dto.ClientDTO;
-import com.rensilver.parkingmanager.dto.StayDTO;
 import com.rensilver.parkingmanager.dto.VehicleDTO;
 import com.rensilver.parkingmanager.entities.Client;
-import com.rensilver.parkingmanager.entities.Stay;
 import com.rensilver.parkingmanager.entities.Vehicle;
 import com.rensilver.parkingmanager.repositories.ClientRepository;
 import com.rensilver.parkingmanager.repositories.StayRepository;
@@ -30,9 +28,6 @@ public class VehicleService {
 
     @Autowired
     private ClientRepository clientRepository;
-
-    @Autowired
-    private StayRepository stayRepository;
 
     @Transactional(readOnly = true)
     public List<VehicleDTO> findAll() {

@@ -1,7 +1,6 @@
 package com.rensilver.parkingmanager.controllers;
 
 import com.rensilver.parkingmanager.dto.VehicleDTO;
-import com.rensilver.parkingmanager.entities.Vehicle;
 import com.rensilver.parkingmanager.services.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
