@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/clients")
+@RequestMapping(value = "/api/v1/clients")
 public class ClientController {
 
     @Autowired

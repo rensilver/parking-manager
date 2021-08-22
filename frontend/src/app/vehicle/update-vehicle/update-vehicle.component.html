@@ -1,0 +1,21 @@
+<h3>Update Vehicle</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Model</label>
+      <input type="text" class="form-control" id="model" required [(ngModel)]="vehicle.model" name="model">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Color</label>
+      <input type="text" class="form-control" id="color" required [(ngModel)]="vehicle.color" name="color">
+    </div>
+
+    <div class="form-group">
+      <label for="name">License Plate</label>
+      <input type="text" class="form-control" id="licensePlate" required [(ngModel)]="vehicle.licensePlate" name="licensePlate">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

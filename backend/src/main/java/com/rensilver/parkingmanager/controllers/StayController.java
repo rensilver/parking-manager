@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/stays")
+@RequestMapping(value = "/api/v1/stays")
 public class StayController {
 
     @Autowired
