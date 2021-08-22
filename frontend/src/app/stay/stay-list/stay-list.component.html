@@ -1,1 +1,30 @@
-<p>stay-list works!</p>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Stay List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>entryDate</th>
+            <th>departureDate</th>
+            <th>entryTime</th>
+            <th>exitTime</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stay of stays | async">
+            <td>{{stay.entryDate}}</td>
+            <td>{{stay.departureDate}}</td>
+            <td>{{stay.entryTime}}</td>
+            <td>{{stay.exitTime}}</td>
+            <td><button (click)="deleteStay(stay.id)" class="btn btn-danger">Delete</button>
+              <button (click)="updateStay(stay.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                <button (click)="stayDetails(stay.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

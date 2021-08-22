@@ -2,10 +2,10 @@ import { Time } from "@angular/common";
 
 export class Stay {
     id: number;
-    entryDate: Date;
-    departureDate: Date;
-    entryTime: Time;
-    exitTime: Time;
+    entryDate: string;
+    departureDate: string;
+    entryTime: string;
+    exitTime: string;
     vehicle: {
         id: number;
         model: string;

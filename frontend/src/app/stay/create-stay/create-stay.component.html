@@ -1,1 +1,30 @@
-<p>create-stay works!</p>
+<h3>Create Stay</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">entryDate</label>
+      <input type="text" class="form-control" id="model" required [(ngModel)]="stay.entryDate" name="entryDate">
+    </div>
+
+    <div class="form-group">
+      <label for="name">departureDate</label>
+      <input type="text" class="form-control" id="color" required [(ngModel)]="stay.departureDate" name="departureDate">
+    </div>
+
+    <div class="form-group">
+      <label for="name">entryTime</label>
+      <input type="text" class="form-control" id="licensePlate" required [(ngModel)]="stay.entryTime" name="entryTime">
+    </div>
+
+    <div class="form-group">
+      <label for="name">entryTime</label>
+      <input type="text" class="form-control" id="licensePlate" required [(ngModel)]="stay.exitTime" name="exitTime">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <button class="btn btn-success" (click)="newStay()">Add</button> -->
+</div>

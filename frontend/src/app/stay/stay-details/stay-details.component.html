@@ -1,1 +1,20 @@
-<p>stay-details works!</p>
+<h2>Stay Details</h2> 
+
+<hr/>
+<div *ngIf="stay">
+  <div>
+    <label><b>Entry Date</b></label> {{stay.entryDate}}
+  </div>
+  <div>
+    <label><b>Departure Date</b></label> {{stay.departureDate}}
+  </div>
+  <div>
+    <label><b>Entry Time</b></label> {{stay.entryTime}}
+  </div>
+  <div>
+    <label><b>Exit Time</b></label> {{stay.exitTime}}
+  </div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Stay List</button><br>
