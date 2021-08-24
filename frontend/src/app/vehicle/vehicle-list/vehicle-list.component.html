@@ -1,14 +1,14 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
-      <h2>Vehicle List</h2>
+      <h2>Vehicle list</h2>
     </div>
     <div class="panel-body">
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>model</th>
-            <th>color</th>
-            <th>licensePlate</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>License Plate</th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +20,54 @@
               <button (click)="updateVehicle(vehicle.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
                 <button (click)="vehicleDetails(vehicle.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
             </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-heading">
+      <h2>Vehicle clients</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>CPF</th>
+            <th>Address</th>
+            <th>Cellphone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vehicle of vehicles | async">
+            <td>{{vehicle.clients.firstName}}</td>
+            <td>{{vehicle.clients.lastName}}</td>
+            <td>{{vehicle.clients.cpf}}</td>
+            <td>{{vehicle.clients.address}}</td>
+            <td>{{vehicle.clients.cellPhone}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-heading">
+      <h2>Vehicle stays</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Entry Date</th>
+            <th>Departure Date</th>
+            <th>Entry Time</th>
+            <th>Exit Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vehicle of vehicles | async">
+            <td>{{vehicle.stays.entryDate}}</td>
+            <td>{{vehicle.stays.departureDate}}</td>
+            <td>{{vehicle.stays.entryTime}}</td>
+            <td>{{vehicle.stays.exitTime}}</td>
           </tr>
         </tbody>
       </table>

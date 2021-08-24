@@ -1,22 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Vehicle } from '../model/vehicle';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VehicleService {
 
-  private baseUrl = 'http://localhost:8080/api/v1/vehicles';
+private baseUrl = 'http://localhost:8080/api/v1/vehicles';
 
   constructor(private http: HttpClient) { }
 
   getVehicle(id: number) : Observable <any> {
-    return this.http.get(`${this.baseUrl}`)
+    return this.http.get<Vehicle>(`${this.baseUrl}/${id}`)
   }
 
-  getVehicleList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+  getVehicleList(): Observable<Vehicle[]> {
+    return this.http.get<Vehicle[]>(`${this.baseUrl}`);
   }
 
   createVehicle(vehicle: Object) : Observable<Object> {

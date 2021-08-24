@@ -24,7 +24,7 @@ export class CreateClientComponent implements OnInit {
   }
 
   save() {
-    this.clientService.createVehicle(this.client)
+    this.clientService.createClient(this.client)
     .subscribe(data => console.log(data),
     error => console.log(error));
     this.client = new Client();

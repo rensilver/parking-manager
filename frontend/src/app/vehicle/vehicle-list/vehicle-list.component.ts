@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { VehicleService } from 'src/app/services/vehicle.service';
 import { Vehicle } from 'src/app/model/vehicle';
 import { Router } from '@angular/router';
+import { Client } from 'src/app/model/client';
 
 @Component({
   selector: 'app-vehicle-list',
