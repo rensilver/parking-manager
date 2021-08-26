@@ -30,6 +30,12 @@ public class ClientController {
         return ResponseEntity.ok().body(clientDTO);
     }
 
+    @GetMapping(value = "/by-vehicle/{vehicleId}")
+    public ResponseEntity<List<ClientDTO>> getAllClientsForVehicle(@PathVariable Long vehicleId) {
+        List<ClientDTO> clientDTOList = clientService.getAllClientsForVehicle(vehicleId);
+        return ResponseEntity.ok().body(clientDTOList);
+    }
+
     @PostMapping
     public ResponseEntity<ClientDTO> insert(@Valid @RequestBody ClientDTO clientDTO) {
         clientDTO = clientService.insert(clientDTO);

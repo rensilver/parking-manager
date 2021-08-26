@@ -8,20 +8,20 @@ import { Stay } from '../model/stay';
 })
 export class StayService {
 
-  private baseUrl = 'http://localhost:8080/api/v1/stays/';
+  private baseUrl = 'http://localhost:8080/api/v1/stays';
 
   constructor(private http: HttpClient) { }
 
-  getStay(id: number) : Observable <any> {
-    return this.http.get(`${this.baseUrl}${id}`);
+  getStay(id: number) : Observable<any> {
+    return this.http.get<Stay>(`${this.baseUrl}/${id}`);
   }
 
   getStayList(): Observable<any> {
-    return this.http.get<Array<Stay>>(`${this.baseUrl}`);
+    return this.http.get(`${this.baseUrl}`);
   }
 
-  getAllStaysForVehicle(vehicleId: number) : Observable <Stay[]> {
-    return this.http.get<Stay[]>(`${this.baseUrl}` + vehicleId);
+  getAllStaysForVehicle(vehicleId: number) : Observable<any> {
+    return this.http.get<Array<Stay>>(`${this.baseUrl}/by-vehicle/${vehicleId}`);
   }
 
   createStay(stay: Object) : Observable<Object> {

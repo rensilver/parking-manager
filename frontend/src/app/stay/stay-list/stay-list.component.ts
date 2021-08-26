@@ -36,11 +36,11 @@ export class StayListComponent implements OnInit {
     );
   }
   stayDetails(id: number){
-    this.router.navigate(['details', id]);
+    this.router.navigate(['stay-details', id]);
   }
 
   updateStay(id: number){
-    this.router.navigate(['update', id])
+    this.router.navigate(['update-stay', id])
   }
 
 }

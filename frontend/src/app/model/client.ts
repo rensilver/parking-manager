@@ -5,4 +5,5 @@ export class Client {
     cpf: string;
     address: string;
     cellPhone: string;
+    vehicleId: number;
 }

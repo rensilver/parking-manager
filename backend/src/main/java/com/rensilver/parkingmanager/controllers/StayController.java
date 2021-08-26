@@ -1,5 +1,6 @@
 package com.rensilver.parkingmanager.controllers;
 
+import com.rensilver.parkingmanager.dto.ClientDTO;
 import com.rensilver.parkingmanager.dto.StayDTO;
 import com.rensilver.parkingmanager.services.StayService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,12 @@ public class StayController {
     public ResponseEntity<StayDTO> findById(@PathVariable Long id) {
         StayDTO stayDTO = stayService.findById(id);
         return ResponseEntity.ok().body(stayDTO);
+    }
+
+    @GetMapping(value = "/by-vehicle/{vehicleId}")
+    public ResponseEntity<List<StayDTO>> getAllStaysForVehicle(@PathVariable Long vehicleId) {
+        List<StayDTO> stayDTOList = stayService.getAllStaysForVehicle(vehicleId);
+        return ResponseEntity.ok().body(stayDTOList);
     }
 
     @PostMapping

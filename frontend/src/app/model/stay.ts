@@ -4,5 +4,4 @@ export class Stay {
     departureDate: string;
     entryTime: string;
     exitTime: string;
-    vehicleId: number; 
 }

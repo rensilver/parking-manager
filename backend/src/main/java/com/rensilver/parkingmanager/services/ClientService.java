@@ -2,7 +2,9 @@ package com.rensilver.parkingmanager.services;
 
 import com.rensilver.parkingmanager.dto.ClientDTO;
 import com.rensilver.parkingmanager.entities.Client;
+import com.rensilver.parkingmanager.entities.Vehicle;
 import com.rensilver.parkingmanager.repositories.ClientRepository;
+import com.rensilver.parkingmanager.repositories.VehicleRepository;
 import com.rensilver.parkingmanager.services.exceptions.DatabaseException;
 import com.rensilver.parkingmanager.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,6 +22,9 @@ public class ClientService {
 
     @Autowired
     private ClientRepository clientRepository;
+
+    @Autowired
+    private VehicleRepository vehicleRepository;
 
     @Transactional(readOnly = true)
     public List<ClientDTO> findAll() {
@@ -36,6 +40,16 @@ public class ClientService {
         Optional<Client> obj = clientRepository.findById(id);
         Client entity = obj.orElseThrow(() -> new ResourceNotFoundException("Client not found"));
         return new ClientDTO(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public List<ClientDTO> getAllClientsForVehicle(Long vehicleId) {
+        Vehicle vehicle = vehicleRepository.findById(vehicleId).orElseThrow(() -> new ResourceNotFoundException("Vehicle not found"));
+        List<Client> clientList = clientRepository.findByVehicles_licensePlate(vehicle.getLicensePlate());
+        return clientList
+                .stream()
+                .map(ClientDTO::new)
+                .collect(Collectors.toList());
     }
 
     @Transactional

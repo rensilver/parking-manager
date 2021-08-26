@@ -24,53 +24,5 @@
         </tbody>
       </table>
     </div>
-    <div class="panel-heading">
-      <h2>Vehicle clients</h2>
-    </div>
-    <div class="panel-body">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>CPF</th>
-            <th>Address</th>
-            <th>Cellphone</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let vehicle of vehicles | async">
-            <td>{{vehicle.clients.firstName}}</td>
-            <td>{{vehicle.clients.lastName}}</td>
-            <td>{{vehicle.clients.cpf}}</td>
-            <td>{{vehicle.clients.address}}</td>
-            <td>{{vehicle.clients.cellPhone}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="panel-heading">
-      <h2>Vehicle stays</h2>
-    </div>
-    <div class="panel-body">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Entry Date</th>
-            <th>Departure Date</th>
-            <th>Entry Time</th>
-            <th>Exit Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let vehicle of vehicles | async">
-            <td>{{vehicle.stays.entryDate}}</td>
-            <td>{{vehicle.stays.departureDate}}</td>
-            <td>{{vehicle.stays.entryTime}}</td>
-            <td>{{vehicle.stays.exitTime}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
   

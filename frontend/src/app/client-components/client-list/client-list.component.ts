@@ -36,11 +36,11 @@ export class ClientListComponent implements OnInit {
       );
     }
     clientDetails(id: number){
-      this.router.navigate(['details', id]);
+      this.router.navigate(['client-details', id]);
     }
   
     updateClient(id: number){
-      this.router.navigate(['update', id])
+      this.router.navigate(['update-client', id])
     }
 
 }

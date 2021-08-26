@@ -16,8 +16,8 @@ private baseUrl = 'http://localhost:8080/api/v1/vehicles';
     return this.http.get<Vehicle>(`${this.baseUrl}/${id}`)
   }
 
-  getVehicleList(): Observable<Vehicle[]> {
-    return this.http.get<Vehicle[]>(`${this.baseUrl}`);
+  getVehicleList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
   }
 
   createVehicle(vehicle: Object) : Observable<Object> {

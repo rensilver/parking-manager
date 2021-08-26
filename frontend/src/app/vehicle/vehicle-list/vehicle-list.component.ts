@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleDetailsComponent } from '../vehicle-details/vehicle-details.component';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { VehicleService } from 'src/app/services/vehicle.service';
 import { Vehicle } from 'src/app/model/vehicle';
 import { Router } from '@angular/router';
 import { Client } from 'src/app/model/client';
+
+import { Stay } from 'src/app/model/stay';
+
 
 @Component({
   selector: 'app-vehicle-list',
@@ -13,10 +16,10 @@ import { Client } from 'src/app/model/client';
 })
 export class VehicleListComponent implements OnInit {
 
+  vehicle: Vehicle;
   vehicles: Observable<Vehicle[]>;
 
-  constructor(private vehicleService: VehicleService,
-    private router: Router) { }
+  constructor(private vehicleService: VehicleService, private router: Router) { }
 
   ngOnInit() {
     this.reloadData();
@@ -37,11 +40,10 @@ export class VehicleListComponent implements OnInit {
     );
   }
   vehicleDetails(id: number){
-    this.router.navigate(['details', id]);
+    this.router.navigate(['vehicle-details', id]);
   }
 
   updateVehicle(id: number){
-    this.router.navigate(['update', id])
+    this.router.navigate(['update-vehicle', id])
   }
-
 }

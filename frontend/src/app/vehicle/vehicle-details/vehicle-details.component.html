@@ -1,15 +1,64 @@
 <h2>Vehicle Details</h2> 
 
-<hr/>
 <div *ngIf="vehicle">
   <div>
-    <label><b>Model</b></label> {{vehicle.model}}
+    <label><b>Model:</b></label> {{vehicle.model}}
   </div>
   <div>
-    <label><b>Color</b></label> {{vehicle.color}}
+    <label><b>Color:</b></label> {{vehicle.color}}
   </div>
   <div>
-    <label><b>License Plate</b></label> {{vehicle.licensePlate}}
+    <label><b>License Plate:</b></label> {{vehicle.licensePlate}}
+  </div>
+  <hr/>
+  <div class="panel-heading">
+    <h2>Vehicle clients</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>CPF</th>
+          <th>Address</th>
+          <th>Cellphone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients | async">
+          <td>{{client.firstName}}</td>
+          <td>{{client.lastName}}</td>
+          <td>{{client.cpf}}</td>
+          <td>{{client.address}}</td>
+          <td>{{client.cellPhone}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr/>
+  <div class="panel-heading">
+    <h2>Vehicle stays</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Entry Date</th>
+          <th>Departure Date</th>
+          <th>Entry Time</th>
+          <th>Exit Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stay of stays | async">
+          <td>{{stay.entryDate}}</td>
+          <td>{{stay.departureDate}}</td>
+          <td>{{stay.entryTime}}</td>
+          <td>{{stay.exitTime}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 <br>
