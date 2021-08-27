@@ -1,33 +1,35 @@
 <h3>Create Client</h3>
+<br/>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">First Name</label>
       <input type="text" class="form-control" id="model" required [(ngModel)]="client.firstName" name="firstName">
     </div>
-
+    <br/>
     <div class="form-group">
       <label for="name">Last Name</label>
       <input type="text" class="form-control" id="color" required [(ngModel)]="client.lastName" name="lastName">
     </div>
-
+    <br/>
     <div class="form-group">
       <label for="name">CPF</label>
       <input type="text" class="form-control" id="licensePlate" required [(ngModel)]="client.cpf" name="cpf">
     </div>
-
+    <br/>
     <div class="form-group">
       <label for="name">Address</label>
       <input type="text" class="form-control" id="licensePlate" required [(ngModel)]="client.address" name="address">
     </div>
-
+    <br/>
     <div class="form-group">
       <label for="name">Cellphone</label>
       <input type="text" class="form-control" id="licensePlate" required [(ngModel)]="client.cellPhone" name="cellPhone">
      </div>
     
-
+     <br/>
     <button type="submit" class="btn btn-success">Submit</button>
+    <button (click)="goToList()" class="btn btn-primary" style="margin-left: 10px">Cancel</button>
   </form>
 </div>
 

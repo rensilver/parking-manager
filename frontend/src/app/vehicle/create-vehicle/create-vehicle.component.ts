@@ -14,7 +14,6 @@ export class CreateVehicleComponent implements OnInit {
   submitted = false;
 
   constructor(private vehicleService: VehicleService, private router: Router) { 
-
   }
 
   ngOnInit() {
@@ -25,7 +24,7 @@ export class CreateVehicleComponent implements OnInit {
     this.vehicle = new Vehicle();
   }
 
-  save() {
+  saveVehicle() {
     this.vehicleService.createVehicle(this.vehicle)
     .subscribe(data => console.log(data),
     error => console.log(error));
@@ -35,11 +34,10 @@ export class CreateVehicleComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.save();
+    this.saveVehicle();
   }
 
   goToList() {
     this.router.navigate(['/vehicles'])
   }
-
 }

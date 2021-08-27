@@ -3,4 +3,5 @@ export class Vehicle{
     model: string;
     color: string;
     licensePlate: string;
+    clientId: number;
 }

@@ -1,4 +1,5 @@
 <h3>Create Vehicle</h3>
+<br/>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -16,10 +17,16 @@
       <input type="text" class="form-control" id="licensePlate" required [(ngModel)]="vehicle.licensePlate" name="licensePlate">
     </div>
     <br/>
+    <div class="form-group">
+      <label for="name">Client code</label>
+      <input type="text" class="form-control" id="licensePlate" required [(ngModel)]="vehicle.clientId" name="clientId">
+    </div>
+    <br/>
     <button type="submit" class="btn btn-success">Submit</button>
+    <button (click)="goToList()" class="btn btn-primary" style="margin-left: 10px">Cancel</button>
   </form>
 </div>
-
+<br/>
 <div [hidden]="!submitted">
   <button class="btn btn-success" (click)="newVehicle()">Add</button> -->
 </div>

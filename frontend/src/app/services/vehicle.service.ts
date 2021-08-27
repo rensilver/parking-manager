@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Vehicle } from '../model/vehicle';
+import { Client } from '../model/client';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VehicleService {
+
+
 
 private baseUrl = 'http://localhost:8080/api/v1/vehicles';
 

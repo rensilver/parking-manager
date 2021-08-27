@@ -10,6 +10,7 @@
             <th>Departure Date</th>
             <th>Entry Time</th>
             <th>Exit Time</th>
+            <th>Hourly Valor</th>
           </tr>
         </thead>
         <tbody>
@@ -18,6 +19,7 @@
             <td>{{stay.departureDate}}</td>
             <td>{{stay.entryTime}}</td>
             <td>{{stay.exitTime}}</td>
+            <td>{{stay.hourlyValor}}</td>
             <td><button (click)="deleteStay(stay.id)" class="btn btn-danger">Delete</button>
               <button (click)="updateStay(stay.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
                 <button (click)="stayDetails(stay.id)" class="btn btn-info" style="margin-left: 10px">Details</button>

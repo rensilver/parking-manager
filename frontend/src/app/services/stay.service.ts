@@ -29,10 +29,10 @@ export class StayService {
   }
 
   updateStay(id: number, value: any) : Observable<Object> {
-    return this.http.put(`${this.baseUrl}${id}`, value);
+    return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
   deleteStay(id: number) : Observable<any> {
-    return this.http.delete(`${this.baseUrl}${id}`, {responseType: 'text'});
+    return this.http.delete(`${this.baseUrl}/${id}`, {responseType: 'text'});
   }
 }

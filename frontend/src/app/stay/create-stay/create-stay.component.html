@@ -1,30 +1,42 @@
 <h3>Create Stay</h3>
+<br/>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Entry Date</label>
       <input type="text" class="form-control" id="model" required [(ngModel)]="stay.entryDate" name="entryDate">
     </div>
-
+    <br/>
     <div class="form-group">
       <label for="name">Departure Date</label>
       <input type="text" class="form-control" id="color" required [(ngModel)]="stay.departureDate" name="departureDate">
     </div>
-
+    <br/>
     <div class="form-group">
       <label for="name">Entry Time</label>
       <input type="text" class="form-control" id="licensePlate" required [(ngModel)]="stay.entryTime" name="entryTime">
     </div>
-
+    <br/>
     <div class="form-group">
       <label for="name">Exit Time</label>
       <input type="text" class="form-control" id="licensePlate" required [(ngModel)]="stay.exitTime" name="exitTime">
     </div>
-
+    <br/>
+    <div class="form-group">
+      <label for="name">Hourly Valor</label>
+      <input type="text" class="form-control" id="licensePlate" required [(ngModel)]="stay.hourlyValor" name="hourlyValor">
+    </div>
+    <br/>
+    <div class="form-group">
+      <label for="name">Vehicle code</label>
+      <input type="text" class="form-control" id="licensePlate" required [(ngModel)]="stay.vehicleId" name="vehicleId">
+    </div>
+    <br/>
     <button type="submit" class="btn btn-success">Submit</button>
+    <button (click)="goToList()" class="btn btn-primary" style="margin-left: 10px">Cancel</button>
   </form>
 </div>
-
+<br/>
 <div [hidden]="!submitted">
   <button class="btn btn-success" (click)="newStay()">Add</button> -->
 </div>

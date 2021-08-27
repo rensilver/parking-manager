@@ -4,4 +4,6 @@ export class Stay {
     departureDate: string;
     entryTime: string;
     exitTime: string;
+    hourlyValor: string;
+    vehicleId: number;
 }
