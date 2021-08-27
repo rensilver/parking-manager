@@ -93,8 +93,13 @@ public class StayService {
         entity.setEntryTime(stayDTO.getEntryTime());
         entity.setExitTime(stayDTO.getExitTime());
         entity.setHourlyValor(stayDTO.getHourlyValor());
-
-        Vehicle vehicle = vehicleRepository.getOne(stayDTO.getVehicle().getId());
-        entity.setVehicle(vehicle);
+        if (stayDTO.getVehicleId() != null) {
+            Vehicle vehicle = vehicleRepository.getOne(stayDTO.getVehicleId());
+            entity.setVehicle(vehicle);
+        }
+        else {
+            Vehicle vehicle = vehicleRepository.getOne(stayDTO.getVehicle().getId());
+            entity.setVehicle(vehicle);
+        }
     }
 }

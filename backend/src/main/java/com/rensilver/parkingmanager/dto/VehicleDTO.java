@@ -15,6 +15,7 @@ public class VehicleDTO implements Serializable {
     private String model;
     private String color;
     private String licensePlate;
+    private Long clientId;
 
     private List<ClientDTO> clients = new ArrayList<>();
 
@@ -23,11 +24,12 @@ public class VehicleDTO implements Serializable {
     public VehicleDTO() {
     }
 
-    public VehicleDTO(Long id, String model, String color, String licensePlate) {
+    public VehicleDTO(Long id, String model, String color, String licensePlate, Long clientId) {
         this.id = id;
         this.model = model;
         this.color = color;
         this.licensePlate = licensePlate;
+        this.clientId = clientId;
     }
 
     public VehicleDTO(Vehicle entity) {
@@ -75,8 +77,20 @@ public class VehicleDTO implements Serializable {
         this.licensePlate = licensePlate;
     }
 
+    public Long getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
+    }
+
     public List<ClientDTO> getClients() {
         return clients;
+    }
+
+    public void setClients(List<ClientDTO> clients) {
+        this.clients = clients;
     }
 
     public List<StayDTO> getStays() {

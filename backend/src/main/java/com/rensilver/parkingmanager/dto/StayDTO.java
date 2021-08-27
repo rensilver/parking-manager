@@ -16,17 +16,19 @@ public class StayDTO implements Serializable {
     private LocalTime exitTime;
     private Double hourlyValor;
     private VehicleBasicInfoDTO vehicle;
+    private Long vehicleId;
 
     public StayDTO() {
     }
 
-    public StayDTO(Long id, LocalDate entryDate, LocalDate departureDate, LocalTime entryTime, LocalTime exitTime, Double hourlyValor) {
+    public StayDTO(Long id, LocalDate entryDate, LocalDate departureDate, LocalTime entryTime, LocalTime exitTime, Double hourlyValor, Long vehicleId) {
         this.id = id;
         this.entryDate = entryDate;
         this.departureDate = departureDate;
         this.entryTime = entryTime;
         this.exitTime = exitTime;
         this.hourlyValor = hourlyValor;
+        this.vehicleId = vehicleId;
     }
 
     public StayDTO(Stay entity) {
@@ -94,6 +96,14 @@ public class StayDTO implements Serializable {
 
     public void setHourlyValor(Double hourlyValor) {
         this.hourlyValor = hourlyValor;
+    }
+
+    public Long getVehicleId() {
+        return vehicleId;
+    }
+
+    public void setVehicleId(Long vehicleId) {
+        this.vehicleId = vehicleId;
     }
 
     public VehicleBasicInfoDTO getVehicle() {

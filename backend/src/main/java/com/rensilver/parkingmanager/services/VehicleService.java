@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -84,10 +85,16 @@ public class VehicleService {
         entity.setColor(dto.getColor());
         entity.setLicensePlate(dto.getLicensePlate());
 
-        entity.getClients().clear();
-        for (ClientDTO clientDTO : dto.getClients()) {
-            Client client = clientRepository.getOne(clientDTO.getId());
-            entity.getClients().add(client);
+        if (dto.getClientId() != null) {
+            Client clientId = clientRepository.getOne(dto.getClientId());
+            entity.getClients().add(clientId);
+        }
+        else {
+            entity.getClients().clear();
+            for (ClientDTO clientDTO : dto.getClients()) {
+                Client client = clientRepository.getOne(clientDTO.getId());
+                entity.getClients().add(client);
+            }
         }
     }
 }
